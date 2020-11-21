@@ -35,11 +35,34 @@ int main()
 				printf("\n");
 			}
 			
-			if(JdV[0][0] == JdV[0][1] && JdV[0][0] == JdV[0][2])
+			for(int linha =0; linha<3; linha++)
 			{
-				printf("Parabéns! Primeiro jogador ganhou!");
-				flagVit = 1;
+				if( JdV[linha][0] == JdV[linha][1] && JdV[linha][2])
+				{
+					printf("Parabéns! Primeiro jogador ganhou!");
+					flagVit = 1;
+				}
 			}
+			
+			for(int coluna =0; coluna<3; coluna++)
+			{
+				if( JdV[0][coluna] == JdV[1][coluna] && JdV[2][coluna]) 
+				{
+					printf("Parabéns! Primeiro jogador ganhou!");
+					flagVit = 1;
+				}
+			}
+			
+			if( JdV[0][0] == JdV[1][1] && JdV[2][2]) 
+				{
+					printf("Parabéns! Primeiro jogador ganhou!");
+					flagVit = 1;
+				}
+			if( JdV[0][3] == JdV[1][1] && JdV[2][0]) 
+				{
+					printf("Parabéns! Primeiro jogador ganhou!");
+					flagVit = 1;
+				}
 			if(JdV[0][0] !=0 && JdV[0][1] !=0 && JdV[0][2] !=0 && JdV[1][0] !=0 && JdV[1][1] !=0 && JdV[1][2] !=0 && JdV[2][0] !=0 && JdV[2][1] !=0 && JdV[2][2] !=0 ) 
 			{
 				printf("\nEmpate!");
@@ -65,6 +88,34 @@ int main()
 				printf("\n");
 			}
 			flagJogador = 1;
+			for(int linha =0; linha<3; linha++)
+			{
+				if( JdV[linha][0] == JdV[linha][1] && JdV[linha][2])
+				{
+					printf("Parabéns! Segundo jogador ganhou!");
+					flagVit = 1;
+				}
+			}
+			
+			for(int coluna =0; coluna<3; coluna++)
+			{
+				if( JdV[0][coluna] == JdV[1][coluna] && JdV[2][coluna]) 
+				{
+					printf("Parabéns! Segundo jogador ganhou!");
+					flagVit = 1;
+				}
+			}
+			
+			if( JdV[0][0] == JdV[1][1] && JdV[2][2]) 
+				{
+					printf("Parabéns! Segundo jogador ganhou!");
+					flagVit = 1;
+				}
+			if( JdV[0][3] == JdV[1][1] && JdV[2][0]) 
+				{
+					printf("Parabéns! Segundo jogador ganhou!");
+					flagVit = 1;
+				}
 			if(JdV[0][0] !=0 && JdV[0][1] !=0 && JdV[0][2] !=0 && JdV[1][0] !=0 && JdV[1][1] !=0 && JdV[1][2] !=0 && JdV[2][0] !=0 && JdV[2][1] !=0 && JdV[2][2] !=0 ) 
 			{
 				printf("\nEmpate!");
