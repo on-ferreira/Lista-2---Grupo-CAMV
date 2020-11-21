@@ -34,8 +34,21 @@ int main()
 				}
 				printf("\n");
 			}
+			
+			if(JdV[0][0] == JdV[0][1] && JdV[0][0] == JdV[0][2])
+			{
+				printf("Parabéns! Primeiro jogador ganhou!");
+				flagVit = 1;
+			}
+			if(JdV[0][0] !=0 && JdV[0][1] !=0 && JdV[0][2] !=0 && JdV[1][0] !=0 && JdV[1][1] !=0 && JdV[1][2] !=0 && JdV[2][0] !=0 && JdV[2][1] !=0 && JdV[2][2] !=0 ) 
+			{
+				printf("\nEmpate!");
+				flagEmpate =1 ;
+			}
 			flagJogador = 2;
 		}
+		
+		if(flagVit ==1 || flagEmpate == 1)		break;
 		
 		if(flagJogador ==2)
 		{
@@ -52,6 +65,11 @@ int main()
 				printf("\n");
 			}
 			flagJogador = 1;
+			if(JdV[0][0] !=0 && JdV[0][1] !=0 && JdV[0][2] !=0 && JdV[1][0] !=0 && JdV[1][1] !=0 && JdV[1][2] !=0 && JdV[2][0] !=0 && JdV[2][1] !=0 && JdV[2][2] !=0 ) 
+			{
+				printf("\nEmpate!");
+				flagEmpate =1 ;
+			}
 		}
 		
 		if(flagVit ==1 || flagEmpate == 1)		break;
