@@ -5,25 +5,57 @@
 #include <string.h>
 #include <conio.h> 
 
-int JdV[3][3];  // matrix que recebera o jogo da velha no formato padrão 3x3
-
 int main() 
 {
 	setlocale (LC_ALL, "");
-
-char player1[2],player2[2];
-
-printf("\nDigite o símbolo do jogador 1: ");
-scanf("%s", &player1);
-printf("\nDigite o símbolo do jogador 2: ");
-scanf("%s", &player2);
-
-printf("%s %s", player1, player2);
-
-while(1)
-{
+	int JdV[3][3] = {0,0,0,0,0,0};  /* matrix que recebera o jogo da velha no formato padrão 
+3x3, note que a matriz já está sendo inicializada*/
+	system("cls");
+	printf("Jogo da Velha!\n");
 	
-}
+
+	while(1)
+	{
+		int flagJogador=1,flagVit=0, flagEmpate=0;
+		int linha,coluna;
+		int aux1, aux2;
+		
+		if(flagJogador ==1)
+		{
+			printf("\nPrimeiro Jogador:");
+			scanf("%d %d",&aux1, &aux2);
+			JdV[aux1-1][aux2-1] = 1;
+			printf("\nTabuleiro:\n");
+			for(linha = 0; linha<3;linha++)
+			{
+				for(coluna=0; coluna<3;coluna++)
+				{
+					printf("%d ", JdV[linha][coluna]);
+				}
+				printf("\n");
+			}
+			flagJogador = 2;
+		}
+		
+		if(flagJogador ==2)
+		{
+			printf("\nSegundo Jogador:");
+			scanf("%d %d",&aux1, &aux2);
+			JdV[aux1-1][aux2-1] = 2;
+			printf("\nTabuleiro:\n");
+			for(linha = 0; linha<3;linha++)
+			{
+				for(coluna=0; coluna<3;coluna++)
+				{
+					printf("%d ", JdV[linha][coluna]);
+				}
+				printf("\n");
+			}
+			flagJogador = 1;
+		}
+		
+		if(flagVit ==1 || flagEmpate == 1)		break;
+	}
 
 	return 0;
 }
