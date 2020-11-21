@@ -5,9 +5,25 @@
 #include <string.h>
 #include <conio.h> 
 
+int JdV[3][3];  // matrix que recebera o jogo da velha no formato padrão 3x3
+
 int main() 
 {
 	setlocale (LC_ALL, "");
+
+char player1[2],player2[2];
+
+printf("\nDigite o símbolo do jogador 1: ");
+scanf("%s", &player1);
+printf("\nDigite o símbolo do jogador 2: ");
+scanf("%s", &player2);
+
+printf("%s %s", player1, player2);
+
+while(1)
+{
+	
+}
 
 	return 0;
 }
