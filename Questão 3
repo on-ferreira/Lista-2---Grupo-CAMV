@@ -13,7 +13,7 @@ void checarcoluna(int b); // feito
 void checardiagonal_principal(int c); // feito
 void checardiagonal_secundaria(int d); // feito
 void empate(); //feito
-void rodada(int numero_jogador); //feito
+void rodada(int rod); //feito
 void tabuleiro(int e); //feito
 void menu();
 int numero_jogador;
@@ -67,16 +67,17 @@ void tabuleiro(int e)
 	if(numero_jogador==2) rodada(1);
 }
 
-void rodada(int numero_jogador)
+void rodada(int rod)
 {
+	int numero_jogador = rod;
 	int aux1, aux2;
 	if(numero_jogador== 1)
 	{
-		printf("\n\nPrimeiro Jogador:");
+		printf("\nPrimeiro Jogador:");
 	}
 	if(numero_jogador == 2)
 	{
-		printf("\n\nSegundo Jogador:");
+		printf("\nSegundo Jogador:");
 	}
 	scanf("%d %d",&aux1, &aux2);
 	if(checarinput(aux1,aux2) == 1)
@@ -99,7 +100,7 @@ int checarinput(int aux1, int aux2)
 
 void checarlinha(int a)
 {
-	int numero_jogador = a, ctLin;;
+	int numero_jogador = a, ctLin;
 	if(numero_jogador ==1)
 	{
 		for(int linha =0; linha<DIM; linha++)
@@ -109,9 +110,9 @@ void checarlinha(int a)
 				{
 					if(JdV[linha][coluna] == 1) ctLin++;
 				}
-				if( ctLin = DIM)
+				if( ctLin == DIM)
 				{
-					printf("Parabéns! Primeiro jogador ganhou!linha");
+					printf("Parabéns! Primeiro jogador ganhou!");
 					exit(0);
 				}			
 			}
@@ -124,11 +125,11 @@ void checarlinha(int a)
 				ctLin=0;
 				for(int coluna =0; coluna<DIM; coluna++)
 				{
-					if(JdV[linha][coluna] == 1) ctLin++;
+					if(JdV[linha][coluna] == 2) ctLin++;
 				}
-				if( ctLin = DIM)
+				if( ctLin == DIM)
 				{
-					printf("Parabéns! Segundo jogador ganhou!linha");
+					printf("Parabéns! Segundo jogador ganhou!");
 					exit(0);
 				}
 			}
@@ -149,7 +150,7 @@ void checarcoluna(int b)
 				}	
 				if( ctCol == DIM)
 				{
-					printf("Parabéns! Primeiro jogador ganhou!coluna");
+					printf("Parabéns! Primeiro jogador ganhou!");
 					exit(0);
 				}
 			}	
@@ -166,7 +167,7 @@ void checarcoluna(int b)
 				}	
 				if( ctCol == DIM)
 				{
-					printf("Parabéns! Segundo jogador ganhou!coluna");
+					printf("Parabéns! Segundo jogador ganhou!");
 					exit(0);
 				}	
 			}
@@ -187,7 +188,7 @@ void checardiagonal_principal(int c)
 		}
 		if(ct_diagonal == DIM) 
 		{
-			printf("Parabéns! Primeiro jogador ganhou!diagonal");
+			printf("Parabéns! Primeiro jogador ganhou!");
 			exit(0);
 		}
 	}
@@ -201,7 +202,7 @@ void checardiagonal_principal(int c)
 		}
 		if(ct_diagonal == DIM) 
 		{
-			printf("Parabéns! Segundo jogador ganhou!diagonal");
+			printf("Parabéns! Segundo jogador ganhou!");
 			exit(0);
 		}
 	}
@@ -215,7 +216,7 @@ void checardiagonal_secundaria(int d)
 	{
 		int linha, coluna;
 		ct_diagonal = 0;
-		for(linha=DIM,coluna = DIM; linha >0; --linha, -coluna )
+		for(linha=DIM-1,coluna = DIM-1; linha >=0; linha--, coluna-- )
 		{
 			if(JdV[linha][coluna] == 1) ct_diagonal++;
 		}
@@ -229,7 +230,7 @@ void checardiagonal_secundaria(int d)
 	{
 		int linha, coluna;
 		ct_diagonal = 0;
-		for(linha=DIM,coluna = DIM; linha >0; --linha, -coluna )
+		for(linha=DIM-1,coluna = DIM-1; linha >=0; linha--, coluna-- )
 		{
 			if(JdV[linha][coluna] == 2) ct_diagonal++;
 		}
