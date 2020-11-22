@@ -17,12 +17,12 @@ void rodada(int numero_jogador); //feito
 void tabuleiro(); //feito
 void menu();
 int numero_jogador;
+
 int main() 
 {
 	system("color 1F");
 	setlocale (LC_ALL, "");
 	menu();
-	system("cls");
 	return 0;
 }
 
@@ -39,7 +39,7 @@ void empate()
 			}
 		}
 	}
-	if((linha*coluna) == ctEmpate) 
+	if((DIM*DIM) == ctEmpate) 
 	{
 		printf("Empate!");
 		exit(0);
@@ -63,8 +63,8 @@ void tabuleiro()
 	checardiagonal_secundaria();
 	empate();
 	int numero_jogador;
-	if(numero_jogador==1) numero_jogador== 2;
-	if(numero_jogador==2) numero_jogador== 1;
+	if(numero_jogador==1) rodada(2);
+	if(numero_jogador==2) rodada(1);
 }
 
 void rodada(int numero_jogador)
@@ -85,7 +85,11 @@ void rodada(int numero_jogador)
 		printf("\nPosição Inválida!\nTente novamente!");
 		rodada(numero_jogador);
 	}
-	else tabuleiro();
+	else 
+	{
+		JdV[aux1-1][aux2-1] = numero_jogador;
+		tabuleiro;
+	}
 }
 
 int checarinput(int aux1, int aux2)
@@ -98,25 +102,35 @@ void checarlinha()
 {
 	if(numero_jogador ==1)
 	{
+		int ctLin=0;
 		for(int linha =0; linha<DIM; linha++)
 			{
-				if( JdV[linha][0] == 1 && JdV[linha][1] ==1 && JdV[linha][2]==1)
+				for(int coluna =0; coluna<DIM; coluna++)
 				{
-					printf("Parabéns! Primeiro jogador ganhou!");
-					exit(0);
+					if(JdV[linha][coluna] == 1) ctLin++;
 				}
+			}
+		if( ctLin = DIM)
+			{
+				printf("Parabéns! Primeiro jogador ganhou!");
+				exit(0);
 			}
 	}
 	
 	if(numero_jogador ==2)
 	{
+		int ctLin=0;
 		for(int linha =0; linha<DIM; linha++)
 			{
-				if( JdV[linha][0] == 2 && JdV[linha][1] ==2 && JdV[linha][2]==2)
+				for(int coluna =0; coluna<DIM; coluna++)
 				{
-					printf("Parabéns! Segundo jogador ganhou!");
-					exit(0);
+					if(JdV[linha][coluna] == 1) ctLin++;
 				}
+			}
+		if( ctLin = DIM)
+			{
+				printf("Parabéns! Segundo jogador ganhou!");
+				exit(0);
 			}
 	}
 }
@@ -125,26 +139,36 @@ void checarcoluna()
 {
 	if(numero_jogador ==1)
 	{
+		int ctCol=0;
 		for(int coluna =0; coluna<DIM; coluna++)
 			{
-				if( JdV[0][coluna] == 1 && JdV[1][coluna] ==1 && JdV[1][coluna]==1)
+				for(int linha =0; linha <DIM; linha++)
 				{
-					printf("Parabéns! Primeiro jogador ganhou!");
-					exit(0);
-				}
+					if(JdV[linha][coluna]==1) ctCol++;
+				}	
 			}
+		if( ctCol == DIM)
+			{
+				printf("Parabéns! Primeiro jogador ganhou!");
+				exit(0);
+			}	
 	}
 	
 	if(numero_jogador ==2)
 	{
-		for(int coluna =0; coluna<DIM; coluna++)
+		int ctCol=0;
+				for(int coluna =0; coluna<DIM; coluna++)
 			{
-				if( JdV[0][coluna] == 2 && JdV[1][coluna] ==2 && JdV[2][coluna]==2)
+				for(int linha =0; linha <DIM; linha++)
 				{
-					printf("Parabéns! Segundo jogador ganhou!");
-					exit(0);
-				}
+					if(JdV[linha][coluna]==2) ctCol++;
+				}	
 			}
+		if( ctCol == DIM)
+			{
+				printf("Parabéns! Segundo jogador ganhou!");
+				exit(0);
+			}	
 	}
 }
 
