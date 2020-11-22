@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <math.h>
-#include <string.h>
-#include <conio.h> 
 #include <unistd.h>
 
 int JdV[3][3],DIM; //inicializada no int main
@@ -94,7 +91,8 @@ void rodada(int rod)
 
 int checarinput(int aux1, int aux2)
 {
-	if (JdV[aux1-1][aux2-1]==0) return 0;
+	if (JdV[aux1-1][aux2-1]==0 && aux1-1>= 0 // continua na linha de baixo
+		&& aux2-1 >= 0 && aux1-1<= DIM && aux2-1 <= DIM) return 0;
 	else return 1;
 }
 
@@ -216,13 +214,13 @@ void checardiagonal_secundaria(int d)
 	{
 		int linha, coluna;
 		ct_diagonal = 0;
-		for(linha=DIM-1,coluna = DIM-1; linha >=0; linha--, coluna-- )
+		for(linha=0,coluna = (DIM-1); coluna >=0; linha++, coluna-- )
 		{
 			if(JdV[linha][coluna] == 1) ct_diagonal++;
 		}
 		if(ct_diagonal == DIM) 
 		{
-			printf("Parabéns! Primeiro jogador ganhou!diagonalsec");
+			printf("Parabéns! Primeiro jogador ganhou!");
 			exit(0);
 		}
 	}
@@ -230,13 +228,13 @@ void checardiagonal_secundaria(int d)
 	{
 		int linha, coluna;
 		ct_diagonal = 0;
-		for(linha=DIM-1,coluna = DIM-1; linha >=0; linha--, coluna-- )
+		for(linha=0,coluna = (DIM-1); coluna >=0; linha++, coluna-- )
 		{
 			if(JdV[linha][coluna] == 2) ct_diagonal++;
 		}
 		if(ct_diagonal == DIM) 
 		{
-			printf("Parabéns! Segundo jogador ganhou!diagonalsec");
+			printf("Parabéns! Segundo jogador ganhou!");
 			exit(0);
 		}
 	}
