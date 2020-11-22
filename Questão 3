@@ -5,6 +5,16 @@
 #include <string.h>
 #include <conio.h> 
 
+int JdV[3][3];
+int checarinput(int aux1, int aux2);
+int checarlinha();
+int checarcoluna();
+int checardiagonal_principal();
+int checardiagonal_secundaria();
+int empate();
+void rodada();
+void tabuleiro();
+
 int main() 
 {
 	setlocale (LC_ALL, "");
@@ -16,7 +26,7 @@ int main()
 
 	while(1)
 	{
-		int flagJogador=1,flagVit=0, flagEmpate=0;
+		int flagJogador=1,flagVit=0;
 		int linha,coluna;
 		int aux1, aux2;
 		
@@ -25,6 +35,7 @@ int main()
 			printf("\nPrimeiro Jogador:");
 			scanf("%d %d",&aux1, &aux2);
 			JdV[aux1-1][aux2-1] = 1;
+			checarinput(aux1, aux2);
 			printf("\nTabuleiro:\n");
 			for(linha = 0; linha<3;linha++)
 			{
@@ -35,87 +46,27 @@ int main()
 				printf("\n");
 			}
 			
-			for(int linha =0; linha<3; linha++)
+			if(JdV[0][0] == JdV[0][1] && JdV[0][0] == JdV[0][2])
 			{
-				if( JdV[linha][0] == JdV[linha][1] && JdV[linha][2])
-				{
-					printf("Parabéns! Primeiro jogador ganhou!");
-					flagVit = 1;
-				}
+				printf("Parabéns! Primeiro jogador ganhou!");
+				flagVit = 1;
 			}
-			
-			for(int coluna =0; coluna<3; coluna++)
-			{
-				if( JdV[0][coluna] == JdV[1][coluna] && JdV[2][coluna]) 
-				{
-					printf("Parabéns! Primeiro jogador ganhou!");
-					flagVit = 1;
-				}
-			}
-			
-			if( JdV[0][0] == JdV[1][1] && JdV[2][2]) 
-				{
-					printf("Parabéns! Primeiro jogador ganhou!");
-					flagVit = 1;
-				}
-			if( JdV[0][3] == JdV[1][1] && JdV[2][0]) 
-				{
-					printf("Parabéns! Primeiro jogador ganhou!");
-					flagVit = 1;
-				}
-			if(JdV[0][0] !=0 && JdV[0][1] !=0 && JdV[0][2] !=0 && JdV[1][0] !=0 && JdV[1][1] !=0 && JdV[1][2] !=0 && JdV[2][0] !=0 && JdV[2][1] !=0 && JdV[2][2] !=0 ) 
+			if(empate = 1 ) 
 			{
 				printf("\nEmpate!");
-				flagEmpate =1 ;
 			}
 			flagJogador = 2;
 		}
 		
-		if(flagVit ==1 || flagEmpate == 1)		break;
+		if(flagVit ==1 || empate == 1)		break;
 		
 		if(flagJogador ==2)
 		{
 			printf("\nSegundo Jogador:");
 			scanf("%d %d",&aux1, &aux2);
 			JdV[aux1-1][aux2-1] = 2;
-			printf("\nTabuleiro:\n");
-			for(linha = 0; linha<3;linha++)
-			{
-				for(coluna=0; coluna<3;coluna++)
-				{
-					printf("%d ", JdV[linha][coluna]);
-				}
-				printf("\n");
-			}
+			
 			flagJogador = 1;
-			for(int linha =0; linha<3; linha++)
-			{
-				if( JdV[linha][0] == JdV[linha][1] && JdV[linha][2])
-				{
-					printf("Parabéns! Segundo jogador ganhou!");
-					flagVit = 1;
-				}
-			}
-			
-			for(int coluna =0; coluna<3; coluna++)
-			{
-				if( JdV[0][coluna] == JdV[1][coluna] && JdV[2][coluna]) 
-				{
-					printf("Parabéns! Segundo jogador ganhou!");
-					flagVit = 1;
-				}
-			}
-			
-			if( JdV[0][0] == JdV[1][1] && JdV[2][2]) 
-				{
-					printf("Parabéns! Segundo jogador ganhou!");
-					flagVit = 1;
-				}
-			if( JdV[0][3] == JdV[1][1] && JdV[2][0]) 
-				{
-					printf("Parabéns! Segundo jogador ganhou!");
-					flagVit = 1;
-				}
 			if(JdV[0][0] !=0 && JdV[0][1] !=0 && JdV[0][2] !=0 && JdV[1][0] !=0 && JdV[1][1] !=0 && JdV[1][2] !=0 && JdV[2][0] !=0 && JdV[2][1] !=0 && JdV[2][2] !=0 ) 
 			{
 				printf("\nEmpate!");
@@ -123,8 +74,64 @@ int main()
 			}
 		}
 		
-		if(flagVit ==1 || flagEmpate == 1)		break;
+		if(flagVit ==1 || empate == 1)		break;
 	}
 
 	return 0;
+}
+
+int empate();
+{
+	int ctEmpate=0;
+	for(int linha =0; linha<3; linha++)
+	{
+		for(int coluna = 0; coluna<3; coluna++)
+		{
+			if(JdV[linha][coluna]!=0)
+			{
+				ctEmpate++;
+			}
+		}
+	}
+	if(9 == ctEmpate) return 1;
+	else return 0;
+}
+
+void tabuleiro()
+{
+	printf("\nTabuleiro:\n");
+	for(linha = 0; linha<3;linha++)
+		{
+		for(coluna=0; coluna<3;coluna++)
+			{
+				printf("%d ", JdV[linha][coluna]);
+			}
+			printf("\n");
+		}
+}
+
+void rodada(numero_jogador)
+{
+	if(numero_jogador== 1)
+	{
+		printf("\nPrimeiro Jogador:");
+	}
+	
+	if(numero_jogador == 2)
+	{
+		printf("\nSegundo Jogador:");
+	}
+	scanf("%d %d",&aux1, &aux2);
+	checkinput(aux1,aux2);
+	if(checkinput == 1)
+	{
+		printf("\nPosição Inválida!\nTente novamente!");
+	}
+	else tabuleiro();
+}
+
+int checkinput(int aux1, int aux2);
+{
+	if (Jdv[aux1][aux2]==0) return 0;
+	else return 1;
 }
