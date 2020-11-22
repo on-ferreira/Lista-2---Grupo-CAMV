@@ -12,8 +12,8 @@ int checarcoluna();
 int checardiagonal_principal();
 int checardiagonal_secundaria();
 int empate();
-void rodada();
-void tabuleiro();
+void rodada(int numero_jogador);
+int tabuleiro();
 
 int main() 
 {
@@ -22,70 +22,16 @@ int main()
 3x3, note que a matriz já está sendo inicializada*/
 	system("cls");
 	printf("Jogo da Velha!\n");
-	
-
-	while(1)
-	{
-		int flagJogador=1,flagVit=0;
-		int linha,coluna;
-		int aux1, aux2;
-		
-		if(flagJogador ==1)
-		{
-			printf("\nPrimeiro Jogador:");
-			scanf("%d %d",&aux1, &aux2);
-			JdV[aux1-1][aux2-1] = 1;
-			checarinput(aux1, aux2);
-			printf("\nTabuleiro:\n");
-			for(linha = 0; linha<3;linha++)
-			{
-				for(coluna=0; coluna<3;coluna++)
-				{
-					printf("%d ", JdV[linha][coluna]);
-				}
-				printf("\n");
-			}
-			
-			if(JdV[0][0] == JdV[0][1] && JdV[0][0] == JdV[0][2])
-			{
-				printf("Parabéns! Primeiro jogador ganhou!");
-				flagVit = 1;
-			}
-			if(empate = 1 ) 
-			{
-				printf("\nEmpate!");
-			}
-			flagJogador = 2;
-		}
-		
-		if(flagVit ==1 || empate == 1)		break;
-		
-		if(flagJogador ==2)
-		{
-			printf("\nSegundo Jogador:");
-			scanf("%d %d",&aux1, &aux2);
-			JdV[aux1-1][aux2-1] = 2;
-			
-			flagJogador = 1;
-			if(JdV[0][0] !=0 && JdV[0][1] !=0 && JdV[0][2] !=0 && JdV[1][0] !=0 && JdV[1][1] !=0 && JdV[1][2] !=0 && JdV[2][0] !=0 && JdV[2][1] !=0 && JdV[2][2] !=0 ) 
-			{
-				printf("\nEmpate!");
-				flagEmpate =1 ;
-			}
-		}
-		
-		if(flagVit ==1 || empate == 1)		break;
-	}
-
+	rodada(1);
 	return 0;
 }
 
-int empate();
+int empate()
 {
-	int ctEmpate=0;
-	for(int linha =0; linha<3; linha++)
+	int ctEmpate=0,linha,coluna;
+	for(linha =0; linha<3; linha++)
 	{
-		for(int coluna = 0; coluna<3; coluna++)
+		for(coluna = 0; coluna<3; coluna++)
 		{
 			if(JdV[linha][coluna]!=0)
 			{
@@ -93,25 +39,34 @@ int empate();
 			}
 		}
 	}
-	if(9 == ctEmpate) return 1;
+	if((linha*coluna) == ctEmpate) return 1;
 	else return 0;
 }
 
-void tabuleiro()
+int tabuleiro()
 {
 	printf("\nTabuleiro:\n");
-	for(linha = 0; linha<3;linha++)
+	for(int linha = 0; linha<3;linha++)
 		{
-		for(coluna=0; coluna<3;coluna++)
+		for(int coluna=0; coluna<3;coluna++)
 			{
 				printf("%d ", JdV[linha][coluna]);
 			}
 			printf("\n");
 		}
+	checarlinha();
+	checarcoluna();
+	checardiagonal_principal();
+	checardiagonal_secundaria();
+	empate();
+	int numero_jogador;
+	if(numero_jogador==1) return 2;
+	if(numero_jogador==2) return 1;
 }
 
-void rodada(numero_jogador)
+void rodada(int numero_jogador)
 {
+	int aux1, aux2;
 	if(numero_jogador== 1)
 	{
 		printf("\nPrimeiro Jogador:");
@@ -122,16 +77,16 @@ void rodada(numero_jogador)
 		printf("\nSegundo Jogador:");
 	}
 	scanf("%d %d",&aux1, &aux2);
-	checkinput(aux1,aux2);
-	if(checkinput == 1)
+	if(checarinput(aux1,aux2) == 1)
 	{
 		printf("\nPosição Inválida!\nTente novamente!");
+		rodada(numero_jogador);
 	}
 	else tabuleiro();
 }
 
-int checkinput(int aux1, int aux2);
+int checarinput(int aux1, int aux2)
 {
-	if (Jdv[aux1][aux2]==0) return 0;
+	if (JdV[aux1][aux2]==0) return 0;
 	else return 1;
 }
