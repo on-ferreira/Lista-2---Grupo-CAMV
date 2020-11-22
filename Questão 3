@@ -22,8 +22,6 @@ int main()
 	system("color 1F");
 	setlocale (LC_ALL, "");
 	menu();
-	int JdV[][DIM] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};  /* matrix que recebera o jogo da velha no formato padrão 
-3x3, note que a matriz já está sendo inicializada*/
 	system("cls");
 	return 0;
 }
@@ -233,7 +231,8 @@ void menu()
 				printf("\nAguarde. O jogo começará em instantes.");
 				sleep(3);
 				DIM = 3;
-	 // Colocar o inicializador de matriz aqui						
+	 // Colocar o inicializador de matriz aqui	
+	 			int JdVDIM[][DIM] = {0,0,0,0,0,0,0,0,0};				
 				system("cls");
 				printf("Jogo da Velha!\n");
 				rodada(1);
@@ -244,7 +243,8 @@ void menu()
 				printf("\nAguarde. O jogo começará em instantes.");
 				sleep(3);
 				DIM = 5;
-	 // Colocar o inicializador de matriz aqui			
+	 // Colocar o inicializador de matriz aqui
+	 			int JdVDIM[][DIM] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};	
 				system("cls");
 				printf("Jogo da Velha!\n");
 				rodada(1);
