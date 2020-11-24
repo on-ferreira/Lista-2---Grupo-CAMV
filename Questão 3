@@ -3,15 +3,15 @@
 #include <locale.h>
 #include <unistd.h>
 
-int JdV[5][5],DIM; //inicializada no int main
-int checarinput(int aux1, int aux2); //feito
-void checarlinha(int a); // feito
-void checarcoluna(int b); // feito
-void checardiagonal_principal(int c); // feito
-void checardiagonal_secundaria(int d); // feito
-void empate(); //feito
-void rodada(int rod); //feito
-void tabuleiro(int e); //feito
+int JdV[5][5],DIM; //inicializada no int menu
+int checarinput(int aux1, int aux2);
+void checarlinha(int a);
+void checarcoluna(int b);
+void checardiagonal_principal(int c);
+void checardiagonal_secundaria(int d);
+void empate();
+void rodada(int rod);
+void tabuleiro(int e);
 void menu();
 int numero_jogador;
 
@@ -39,7 +39,18 @@ void empate()
 	if((DIM*DIM) == ctEmpate) 
 	{
 		printf("Empate!");
-		exit(0);
+		printf("\n \n");
+		
+		int resp;
+			printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
+			scanf("%d", &resp);
+			if(resp == 1){
+				system("cls");
+				menu();
+			}
+				
+			else if(resp == 2)
+				exit(0);
 	}
 }
 
@@ -91,9 +102,10 @@ void rodada(int rod)
 
 int checarinput(int aux1, int aux2)
 {
-	if (JdV[aux1-1][aux2-1]==0 && aux1-1>= 0 // continua na linha de baixo
-		&& aux2-1 >= 0 && aux1-1<= DIM && aux2-1 <= DIM) return 0;
-	else return 1;
+	if (JdV[aux1-1][aux2-1]==0 && aux1-1>= 0 && aux2-1 >= 0 && aux1-1<= DIM && aux2-1 <= DIM) 
+		return 0;
+	else 
+		return 1;
 }
 
 void checarlinha(int a)
@@ -111,7 +123,17 @@ void checarlinha(int a)
 				if( ctLin == DIM)
 				{
 					printf("Parabéns! Primeiro jogador ganhou!");
-					exit(0);
+					printf("\n \n");
+		
+					int resp;
+					printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
+					scanf("%d", &resp);
+					if(resp == 1){
+						system("cls");
+						menu();
+					}
+					else if(resp == 2)
+						exit(0);
 				}			
 			}
 	}
@@ -128,7 +150,17 @@ void checarlinha(int a)
 				if( ctLin == DIM)
 				{
 					printf("Parabéns! Segundo jogador ganhou!");
-					exit(0);
+					printf("\n \n");
+		
+					int resp;
+					printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
+					scanf("%d", &resp);
+					if(resp == 1){
+						system("cls");
+						menu();
+					}
+					else if(resp == 2)
+						exit(0);
 				}
 			}
 	}
@@ -149,7 +181,17 @@ void checarcoluna(int b)
 				if( ctCol == DIM)
 				{
 					printf("Parabéns! Primeiro jogador ganhou!");
-					exit(0);
+					printf("\n \n");
+		
+					int resp;
+					printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
+					scanf("%d", &resp);
+					if(resp == 1){
+						system("cls");
+						menu();
+					}
+					else if(resp == 2)
+						exit(0);
 				}
 			}	
 	}
@@ -166,7 +208,17 @@ void checarcoluna(int b)
 				if( ctCol == DIM)
 				{
 					printf("Parabéns! Segundo jogador ganhou!");
-					exit(0);
+					printf("\n \n");
+		
+					int resp;
+					printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
+					scanf("%d", &resp);
+					if(resp == 1){
+						system("cls");
+						menu();
+					}
+					else if(resp == 2)
+						exit(0);
 				}	
 			}
 	}
@@ -187,7 +239,17 @@ void checardiagonal_principal(int c)
 		if(ct_diagonal == DIM) 
 		{
 			printf("Parabéns! Primeiro jogador ganhou!");
-			exit(0);
+			printf("\n \n");
+		
+			int resp;
+			printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
+			scanf("%d", &resp);
+			if(resp == 1){
+				system("cls");
+				menu();
+			}
+			else if(resp == 2)
+				exit(0);
 		}
 	}
 	if(numero_jogador ==2)
@@ -201,7 +263,17 @@ void checardiagonal_principal(int c)
 		if(ct_diagonal == DIM) 
 		{
 			printf("Parabéns! Segundo jogador ganhou!");
-			exit(0);
+			printf("\n \n");
+		
+			int resp;
+			printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
+			scanf("%d", &resp);
+			if(resp == 1){
+				system("cls");
+				menu();
+			}
+			else if(resp == 2)
+				exit(0);
 		}
 	}
 }
@@ -221,7 +293,17 @@ void checardiagonal_secundaria(int d)
 		if(ct_diagonal == DIM) 
 		{
 			printf("Parabéns! Primeiro jogador ganhou!");
-			exit(0);
+			printf("\n \n");
+		
+			int resp;
+			printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
+			scanf("%d", &resp);
+			if(resp == 1){
+				system("cls");
+				menu();
+			}
+			else if(resp == 2)
+				exit(0);
 		}
 	}
 	if(numero_jogador ==2)
@@ -235,7 +317,17 @@ void checardiagonal_secundaria(int d)
 		if(ct_diagonal == DIM) 
 		{
 			printf("Parabéns! Segundo jogador ganhou!");
-			exit(0);
+			printf("\n \n");
+		
+			int resp;
+			printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
+			scanf("%d", &resp);
+			if(resp == 1){
+				system("cls");
+				menu();
+			}
+			else if(resp == 2)
+				exit(0);
 		}
 	}
 }
@@ -257,8 +349,7 @@ void menu()
 				printf("\nAguarde. O jogo começará em instantes.");
 				sleep(3);
 				DIM = 3;
-	 // Colocar o inicializador de matriz aqui	
-	 			int JdV[DIM][DIM] = {0,0,0,0,0,0,0,0,0};				
+	 			int JdV[3][3] = {0,0,0,0,0,0,0,0,0};				
 				system("cls");
 				printf("Jogo da Velha!\n");
 				rodada(1);
@@ -269,9 +360,8 @@ void menu()
 				printf("\nVocê escolheu a opção de jogar em um tabuleiro 5x5!\n");
 				printf("\nAguarde. O jogo começará em instantes.");
 				sleep(3);
+	 			int JdV[5][5] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 				DIM = 5;
-	 // Colocar o inicializador de matriz aqui
-	 			int JdV[DIM][DIM] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};	
 				system("cls");
 				printf("Jogo da Velha!\n");
 				rodada(1);
