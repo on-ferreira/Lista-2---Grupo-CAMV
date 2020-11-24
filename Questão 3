@@ -102,7 +102,7 @@ void rodada(int rod)
 
 int checarinput(int aux1, int aux2)
 {
-	if (JdV[aux1-1][aux2-1]==0 && aux1-1>= 0 && aux2-1 >= 0 && aux1-1<= DIM && aux2-1 <= DIM) 
+	if (JdV[aux1-1][aux2-1]==0 && aux1-1>= 0 && aux2-1 >= 0 && aux1-1< DIM && aux2-1 < DIM) 
 		return 0;
 	else 
 		return 1;
