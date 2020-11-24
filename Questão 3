@@ -3,7 +3,7 @@
 #include <locale.h>
 #include <unistd.h>
 
-int JdV[3][3],DIM; //inicializada no int main
+int JdV[5][5],DIM; //inicializada no int main
 int checarinput(int aux1, int aux2); //feito
 void checarlinha(int a); // feito
 void checarcoluna(int b); // feito
