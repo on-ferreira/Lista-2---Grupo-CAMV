@@ -12,12 +12,12 @@ Menu();//Orlando (viciado em menu)
 ScanDistancias(); // JP
 	espelharMatriz();// JP
 	ConferirSeLocalOcupado();//Tobias 
-InputCidadeAtual();//Rebello
+InputCidadeAtual();//JP
 	ConferirMenorDis();//Tobias
-		SalvarDis();//Rebello
+		SalvarDis();//Orlando
 		ConferirDis>=1000();//Tobias
 	SalvarTrajeto();//Orlando
-		TrocarDistancia();//Rebello ou Orlando
+		TrocarDistancia();//Orlando
 Resultado();//Orlando		
 	
 	
