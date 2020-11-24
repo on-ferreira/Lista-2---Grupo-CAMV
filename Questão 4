@@ -5,6 +5,14 @@
 #include <string.h>
 #include <conio.h> 
 
+Char Arte[23][23];
+menu();
+ScanArte();
+	90hor();
+	90Ant();
+	EspVert();
+	EspHori();
+printArt();
 int main() 
 {
 	setlocale (LC_ALL, "");
