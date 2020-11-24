@@ -8,16 +8,17 @@
 int Distancias[30][30];
 int Trajeto[30];
 Int DistanciaDoDia;
-ScanDistancias();
-	espelharMatriz();
-	ConferirSeLocalOcupado();
-InputCidadeAtual();
-	ConferirMenorDis();
-		SalvarDis();
-		ConferirDis>=1000();
-	SalvarTrajeto();
-		TrocarDistancia();
-Resultado();		
+Menu();//Orlando (viciado em menu)
+ScanDistancias(); // JP
+	espelharMatriz();// JP
+	ConferirSeLocalOcupado();//Tobias 
+InputCidadeAtual();//Rebello
+	ConferirMenorDis();//Tobias
+		SalvarDis();//Rebello
+		ConferirDis>=1000();//Tobias
+	SalvarTrajeto();//Orlando
+		TrocarDistancia();//Rebello ou Orlando
+Resultado();//Orlando		
 	
 	
 
