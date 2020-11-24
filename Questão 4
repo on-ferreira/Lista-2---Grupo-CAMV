@@ -21,3 +21,21 @@ int main()
 
 	return 0;
 }
+
+void ScanArte(char Arte[23][23]) // Função que pede ao usuário que digite a arte e a imprime.
+{
+char art[23][23];
+	
+	for(int i=0; i<23;i++)
+		for(int j=0; j<23; j++){
+			printf("Digite o caractere da casa [%d][%d]: ", i, j);
+			scanf("%c", &art[i][j]);}
+
+	int i=0;
+	while(i<23){
+		for(int j=0; j<23; j++){
+	 		printf("%c", &art[i][j]);
+			if(art[i][j] = '\n' || j==23)
+	 	   	i++;}
+	}
+}
