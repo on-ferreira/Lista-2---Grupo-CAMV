@@ -14,7 +14,7 @@ ScanArte(); // JP
 	EspHori(); // Orlando
 printArt(); //
 
-Bonus(); // JP
+LeitorTXT(); // JP - Bonus
 int main() 
 {
 	setlocale (LC_ALL, "");
@@ -38,4 +38,23 @@ char art[23][23];
 			if(art[i][j] = '\n' || j==23)
 	 	   	i++;}
 	}
+}
+
+void LeitorTXT()
+{
+	FILE *file; //Define um ponteiro do tipo FILE
+	file = fopen("Casa.txt", "r"); //Abre o arquivo Casa.txt (o arquivo deve estar no mesmo diretório que o exe)
+				       //"r" significa "read", usado na função "fopen" para ler arquivos
+	
+	if(file == NULL){ //Se o ponteiro não apontar para nada, ou seja, se o nome digitado for diferente do nome do arquivo, printa que é inválido.
+		printf("Arquivo inválido.\n");
+		return 0;
+	}
+	
+	char arquivo[529];
+	while((fgets(arquivo, 529, file)) != NULL){ //Imprime até que encontre um espaço vazio (NULL), daí para o print.
+		printf("%s", arquivo);
+	}
+	
+	fclose(file);
 }
