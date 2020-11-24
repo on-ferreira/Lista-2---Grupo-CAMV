@@ -8,13 +8,60 @@
 Char Arte[23][23];
 menu(); // Orlando
 ScanArte(); // JP
-	90hor(); // Tobias
-	90Ant(); // Tobias
-	EspVert(); // Orlando
-	EspHori(); // Orlando
+	90hor(); // Tobias FEITO
+	90Ant(); // Tobias FEITO
+	EspVert(); // Orlando FEITO 
+	EspHori(); // Orlando FEITO
 printArt(); //
 
-LeitorTXT(); // JP - Bonus
+LeitorTXT(); // JP - Bonus FEITO
+int 90hor()
+	{
+		
+		int i=0,j=0,linha=0,coluna=2;		
+		int novo[23][23];
+
+		for(linha=0,j=22;j>=0;j--,linha++)
+		{
+		
+			for (coluna=0,i=0;i<23;i++,coluna++)
+			{
+				novo[coluna][linha]=matriz[j][i];
+			}
+		}	
+		for(i=0;i<23;i++)
+		{
+			for(j=0;j<23;j++)
+				{
+					printf("%d ",novo[i][j]);
+				}
+				printf("\n");
+		}		
+		return 0;
+	}
+int 90Ant()
+	{
+
+		int i=0,j=0,linha=0,coluna=2;		
+		int novo[23][23];
+
+		for(linha=0,j=22;j>=0;j--,linha++)
+		{
+		
+			for (coluna=0,i=0;i<23;i++,coluna++)
+			{
+				novo[linha][coluna]=matriz[i][j];
+			}
+		}	
+		for(i=0;i<3;i++)
+		{
+			for(j=0;j<23;j++)
+				{
+					printf("%d ",novo[i][j]);
+				}
+				printf("\n");
+		}		
+	}
 int main() 
 {
 	setlocale (LC_ALL, "");
