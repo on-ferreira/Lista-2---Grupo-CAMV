@@ -6,13 +6,15 @@
 #include <conio.h> 
 
 Char Arte[23][23];
-menu();
-ScanArte();
-	90hor();
-	90Ant();
-	EspVert();
-	EspHori();
-printArt();
+menu(); // Orlando
+ScanArte(); // JP
+	90hor(); // Tobias
+	90Ant(); // Tobias
+	EspVert(); // Orlando
+	EspHori(); // Orlando
+printArt(); //
+
+Bonus(); // JP
 int main() 
 {
 	setlocale (LC_ALL, "");
