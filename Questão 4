@@ -15,11 +15,11 @@ ScanArte(); // JP
 printArt(); //
 
 LeitorTXT(); // JP - Bonus FEITO
-int 90hor()
+void 90hor()
 	{
 		
-		int i=0,j=0,linha=0,coluna=2;		
-		int novo[23][23];
+		int i=0,j=0,linha=0,coluna=22;		
+		Char novo[23][23];
 
 		for(linha=0,j=22;j>=0;j--,linha++)
 		{
@@ -33,17 +33,17 @@ int 90hor()
 		{
 			for(j=0;j<23;j++)
 				{
-					printf("%d ",novo[i][j]);
+					printf("%c ",novo[i][j]);
 				}
 				printf("\n");
 		}		
 		
 	}
-int 90Ant()
+void 90Ant()
 	{
 
-		int i=0,j=0,linha=0,coluna=2;		
-		int novo[23][23];
+		int i=0,j=0,linha=0,coluna=22;		
+		char novo[23][23];
 
 		for(linha=0,j=22;j>=0;j--,linha++)
 		{
@@ -57,7 +57,7 @@ int 90Ant()
 		{
 			for(j=0;j<23;j++)
 				{
-					printf("%d ",novo[i][j]);
+					printf("%c ",novo[i][j]);
 				}
 				printf("\n");
 		}		
