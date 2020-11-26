@@ -13,6 +13,7 @@ void empate();
 void rodada(int rod);
 void tabuleiro(int e);
 void menu();
+void newgame();
 int numero_jogador;
 
 int main() 
@@ -46,7 +47,7 @@ void empate()
 			scanf("%d", &resp);
 			if(resp == 1){
 				system("cls");
-				menu();
+				newgame();
 			}
 				
 			else if(resp == 2)
@@ -129,8 +130,7 @@ void checarlinha(int a)
 					printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
 					scanf("%d", &resp);
 					if(resp == 1){
-						system("cls");
-						menu();
+						newgame();
 					}
 					else if(resp == 2)
 						exit(0);
@@ -156,8 +156,7 @@ void checarlinha(int a)
 					printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
 					scanf("%d", &resp);
 					if(resp == 1){
-						system("cls");
-						menu();
+						newgame();
 					}
 					else if(resp == 2)
 						exit(0);
@@ -187,8 +186,7 @@ void checarcoluna(int b)
 					printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
 					scanf("%d", &resp);
 					if(resp == 1){
-						system("cls");
-						menu();
+						newgame();
 					}
 					else if(resp == 2)
 						exit(0);
@@ -214,8 +212,7 @@ void checarcoluna(int b)
 					printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
 					scanf("%d", &resp);
 					if(resp == 1){
-						system("cls");
-						menu();
+						newgame();
 					}
 					else if(resp == 2)
 						exit(0);
@@ -245,8 +242,7 @@ void checardiagonal_principal(int c)
 			printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
 			scanf("%d", &resp);
 			if(resp == 1){
-				system("cls");
-				menu();
+				newgame();
 			}
 			else if(resp == 2)
 				exit(0);
@@ -269,8 +265,7 @@ void checardiagonal_principal(int c)
 			printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
 			scanf("%d", &resp);
 			if(resp == 1){
-				system("cls");
-				menu();
+				newgame();
 			}
 			else if(resp == 2)
 				exit(0);
@@ -299,8 +294,7 @@ void checardiagonal_secundaria(int d)
 			printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
 			scanf("%d", &resp);
 			if(resp == 1){
-				system("cls");
-				menu();
+				newgame();
 			}
 			else if(resp == 2)
 				exit(0);
@@ -323,8 +317,7 @@ void checardiagonal_secundaria(int d)
 			printf("Deseja jogar novamente? Digite 1 para sim e 2 para não!\n");
 			scanf("%d", &resp);
 			if(resp == 1){
-				system("cls");
-				menu();
+				newgame();
 			}
 			else if(resp == 2)
 				exit(0);
@@ -360,7 +353,7 @@ void menu()
 				printf("\nVocê escolheu a opção de jogar em um tabuleiro 5x5!\n");
 				printf("\nAguarde. O jogo começará em instantes.");
 				sleep(3);
-	 			int JdV[5][5] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	 			int JdV[5][5] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 				DIM = 5;
 				system("cls");
 				printf("Jogo da Velha!\n");
@@ -379,4 +372,17 @@ void menu()
 				void menu();
 			}
 	}
+}
+
+void newgame()
+{
+	for(int linha = 0; linha<DIM;linha++)
+		{
+		for(int coluna=0; coluna<DIM;coluna++)
+			{
+				JdV[linha][coluna]=0;
+			}
+			printf("\n");
+		}
+	menu();
 }
