@@ -5,33 +5,33 @@
 #include <string.h>
 #include <conio.h> 
 
-char Arte[24][24];
+char Arte[23][23];
 void menuini(); // Orlando
-void menurot(char Arte[23][23]); // 
+void menurot(); // 
 void ScanArte(); // JP
-void hor90(char Arte[23][23]); // Tobias FEITO
-void ant90(char Arte[23][23]); // Tobias FEITO
-void EspVert(char Arte[23][23]); // Orlando FEITO 
-void EspHori(char *Arte[23][23]); // Orlando FEITO
+void hor90(int R1); // Tobias FEITO
+void ant90(int R2); // Tobias FEITO
+void EspVert(int EV); // Orlando FEITO 
+void EspHori(int EH); // Orlando FEITO
 
 void LeitorTXT(); // JP - Bonus FEITO
 void hor90()
 	{
 		
 		int i=0,j=0,linha=0,coluna=22;		
-		char novo[24][24];
+		char novo[23][23];
 
 		for(linha=0,j=23;j>=0;j--,linha++)
 		{
 		
-			for (coluna=0,i=0;i<24;i++,coluna++)
+			for (coluna=0,i=0;i<23;i++,coluna++)
 			{
 				novo[coluna][linha]=Arte[j][i];
 			}
 		}	
-		for(i=0;i<24;i++)
+		for(i=0;i<23;i++)
 		{
-			for(j=0;j<24;j++)
+			for(j=0;j<23;j++)
 				{
 					printf("%c ",novo[i][j]);
 				}
@@ -43,19 +43,19 @@ void ant90()
 	{
 
 		int i=0,j=0,linha=0,coluna=23;		
-		char novo[24][24];
+		char novo[23][23];
 
 		for(linha=0,j=22;j>=0;j--,linha++)
 		{
 		
-			for (coluna=0,i=0;i<24;i++,coluna++)
+			for (coluna=0,i=0;i<23;i++,coluna++)
 			{
 				novo[linha][coluna]=Arte[i][j];
 			}
 		}	
-		for(i=0;i<24;i++)
+		for(i=0;i<23;i++)
 		{
-			for(j=0;j<24;j++)
+			for(j=0;j<23;j++)
 				{
 					printf("%c ",novo[i][j]);
 				}
@@ -71,21 +71,21 @@ int main()
 
 void ScanArte() // Função que pede ao usuário que digite a arte e a imprime.
 {
-	char art[24][24];
+	char art[23][23];
 	
-	for(int i=0; i<24;i++)
-		for(int j=0; j<24; j++){
+	for(int i=0; i<23;i++)
+		for(int j=0; j<23; j++){
 			printf("Digite o caractere da casa [%d][%d]: ", i, j);
 			scanf("%c", &art[i][j]);}
 
 	int i=0;
-	while(i<24){
-		for(int j=0; j<24; j++){
+	while(i<23){
+		for(int j=0; j<23; j++){
 	 		printf("%c", &art[i][j]);
 			if(art[i][j] = '\n' || j==23)
 	 	   	i++;}
 	}
-	menurot(art[24][24]);
+	menurot();
 }
 
 void LeitorTXT()
@@ -98,13 +98,13 @@ void LeitorTXT()
 		printf("Arquivo inválido.\n");
 	}
 	
-	char arquivo[576];
-	while((fgets(arquivo, 576, file)) != NULL){ //Imprime até que encontre um espaço vazio (NULL), daí para o print.
+	char arquivo[529];
+	while((fgets(arquivo, 529, file)) != NULL){ //Imprime até que encontre um espaço vazio (NULL), daí para o print.
 		printf("%s", arquivo);
 	}
 	
 	fclose(file);
-	menurot(arquivo[24][24]);
+	menurot();
 }
 
 void menuini()
@@ -136,9 +136,9 @@ void menuini()
 	}
 }
 
-void menurot(char Arte[24][24])
+void menurot()
 {
-	int opcao;
+	int opcao,R1,R2,EV,EH;
 	printf("\n------------------Menu de Transformações------------------");
 	printf("\n 1 - Rotacione a imagem em 90° no sentido horário.");
 	printf("\n 2 - Rotacione a imagem em 90° no sentido anti-horário. ");
@@ -151,22 +151,30 @@ void menurot(char Arte[24][24])
 	{
 		case 1:
 			{
-				hor90(Arte[24][24]);
+				printf("\nQuantas rotações deseja fazer? ");
+				scanf("%d",&R1);
+				hor90(R1);
 			}
 			break;
 		case 2:
 			{
-				ant90(Arte[24][24]);
+				printf("\nQuantas rotações deseja fazer? ");
+				scanf("%d",&R2);
+				ant90(R2);
 			}
 			break;
 		case 3:
 			{
-				EspVert(Arte[24][24]);
+				printf("\nQuantos espelhamentos deseja fazer? ");
+				scanf("%d",&EV);
+				EspVert(EV);
 			}
 			break;
 		case 4:
 			{
-				EspHori(Arte[24][24]);
+				printf("\nQuantos espelhamentos deseja fazer? ");
+				scanf("%d",&EH);
+				EspHori(EH);
 			}
 			break;
 		default: 
@@ -177,9 +185,11 @@ void menurot(char Arte[24][24])
 	}
 }
 
-void EspVert(char Arte[24][24])
+void EspVert(int EV)
 {
-	char artVert[24][24];
+	char artVert[23][23];
+	
+	
 	printf("\n \n");
 		
 		int resp;
@@ -187,15 +197,17 @@ void EspVert(char Arte[24][24])
 		scanf("%d", &resp);
 		if(resp == 1)
 		{
-			menurot(artHori[24][24]);
+			menurot();
 		}
 		else if(resp == 2)
 			exit(0);	
 }
 
-void EspHori(char Arte[24][24])
+void EspHori(int EH)
 {
-	char artHori[24][24];
+	char artHori[23][23];
+	
+	
 	printf("\n \n");
 		
 		int resp;
@@ -203,7 +215,7 @@ void EspHori(char Arte[24][24])
 		scanf("%d", &resp);
 		if(resp == 1)
 		{
-			menurot(artHori[24][24]);
+			menurot();
 		}
 		else if(resp == 2)
 			exit(0);
