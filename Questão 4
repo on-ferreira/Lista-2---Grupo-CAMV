@@ -5,33 +5,33 @@
 #include <string.h>
 #include <conio.h> 
 
-Char Arte[23][23];
-menu(); // Orlando
-ScanArte(); // JP
-	90hor(); // Tobias FEITO
-	90Ant(); // Tobias FEITO
-	EspVert(); // Orlando FEITO 
-	EspHori(); // Orlando FEITO
-printArt(); //
+char Arte[24][24];
+void menuini(); // Orlando
+void menurot(char Arte[23][23]); // 
+void ScanArte(); // JP
+void hor90(char Arte[23][23]); // Tobias FEITO
+void ant90(char Arte[23][23]); // Tobias FEITO
+void EspVert(char Arte[23][23]); // Orlando FEITO 
+void EspHori(char *Arte[23][23]); // Orlando FEITO
 
-LeitorTXT(); // JP - Bonus FEITO
-void 90hor()
+void LeitorTXT(); // JP - Bonus FEITO
+void hor90()
 	{
 		
 		int i=0,j=0,linha=0,coluna=22;		
-		Char novo[23][23];
+		char novo[24][24];
 
-		for(linha=0,j=22;j>=0;j--,linha++)
+		for(linha=0,j=23;j>=0;j--,linha++)
 		{
 		
-			for (coluna=0,i=0;i<23;i++,coluna++)
+			for (coluna=0,i=0;i<24;i++,coluna++)
 			{
-				novo[coluna][linha]=matriz[j][i];
+				novo[coluna][linha]=Arte[j][i];
 			}
 		}	
-		for(i=0;i<23;i++)
+		for(i=0;i<24;i++)
 		{
-			for(j=0;j<23;j++)
+			for(j=0;j<24;j++)
 				{
 					printf("%c ",novo[i][j]);
 				}
@@ -39,23 +39,23 @@ void 90hor()
 		}		
 		
 	}
-void 90Ant()
+void ant90()
 	{
 
-		int i=0,j=0,linha=0,coluna=22;		
-		char novo[23][23];
+		int i=0,j=0,linha=0,coluna=23;		
+		char novo[24][24];
 
 		for(linha=0,j=22;j>=0;j--,linha++)
 		{
 		
-			for (coluna=0,i=0;i<23;i++,coluna++)
+			for (coluna=0,i=0;i<24;i++,coluna++)
 			{
-				novo[linha][coluna]=matriz[i][j];
+				novo[linha][coluna]=Arte[i][j];
 			}
 		}	
-		for(i=0;i<3;i++)
+		for(i=0;i<24;i++)
 		{
-			for(j=0;j<23;j++)
+			for(j=0;j<24;j++)
 				{
 					printf("%c ",novo[i][j]);
 				}
@@ -65,26 +65,27 @@ void 90Ant()
 int main() 
 {
 	setlocale (LC_ALL, "");
-
+	menuini();
 	return 0;
 }
 
-void ScanArte(char Arte[23][23]) // Função que pede ao usuário que digite a arte e a imprime.
+void ScanArte() // Função que pede ao usuário que digite a arte e a imprime.
 {
-char art[23][23];
+	char art[24][24];
 	
-	for(int i=0; i<23;i++)
-		for(int j=0; j<23; j++){
+	for(int i=0; i<24;i++)
+		for(int j=0; j<24; j++){
 			printf("Digite o caractere da casa [%d][%d]: ", i, j);
 			scanf("%c", &art[i][j]);}
 
 	int i=0;
-	while(i<23){
-		for(int j=0; j<23; j++){
+	while(i<24){
+		for(int j=0; j<24; j++){
 	 		printf("%c", &art[i][j]);
 			if(art[i][j] = '\n' || j==23)
 	 	   	i++;}
 	}
+	menurot(art[24][24]);
 }
 
 void LeitorTXT()
@@ -95,13 +96,115 @@ void LeitorTXT()
 	
 	if(file == NULL){ //Se o ponteiro não apontar para nada, ou seja, se o nome digitado for diferente do nome do arquivo, printa que é inválido.
 		printf("Arquivo inválido.\n");
-		return 0;
 	}
 	
-	char arquivo[529];
-	while((fgets(arquivo, 529, file)) != NULL){ //Imprime até que encontre um espaço vazio (NULL), daí para o print.
+	char arquivo[576];
+	while((fgets(arquivo, 576, file)) != NULL){ //Imprime até que encontre um espaço vazio (NULL), daí para o print.
 		printf("%s", arquivo);
 	}
 	
 	fclose(file);
+	menurot(arquivo[24][24]);
+}
+
+void menuini()
+{
+	int opcao;
+	printf("\n------------------Selecione o modo de enviar a Scan Art II------------------");
+	printf("\n 1 - Digitar o arquivo manualmente no formato [23][23].");
+	printf("\n 2 - Enviar um arquivo no format .txt ");	
+	printf("\n 0 - Sair \n");
+	printf("\n\nDigite a opção desejada: ");
+	scanf("%d",&opcao);
+	switch(opcao)
+	{
+		case 1:
+			{
+				ScanArte();
+			}
+			break;
+		case 2:
+			{
+				LeitorTXT();
+			}
+			break;
+		default: 
+			{
+				printf("\nOpção não encontrada! Digite novamente!");
+				void menu();
+			}
+	}
+}
+
+void menurot(char Arte[24][24])
+{
+	int opcao;
+	printf("\n------------------Menu de Transformações------------------");
+	printf("\n 1 - Rotacione a imagem em 90° no sentido horário.");
+	printf("\n 2 - Rotacione a imagem em 90° no sentido anti-horário. ");
+	printf("\n 3 - Aplique espelhamentos verticais na imagem. ");	
+	printf("\n 4 - Aplique espelhamentos horizontais na imagem. ");	
+	printf("\n 0 - Sair \n");
+	printf("\n\nDigite a opção desejada: ");
+	scanf("%d",&opcao);
+	switch(opcao)
+	{
+		case 1:
+			{
+				hor90(Arte[24][24]);
+			}
+			break;
+		case 2:
+			{
+				ant90(Arte[24][24]);
+			}
+			break;
+		case 3:
+			{
+				EspVert(Arte[24][24]);
+			}
+			break;
+		case 4:
+			{
+				EspHori(Arte[24][24]);
+			}
+			break;
+		default: 
+			{
+				printf("\nOpção não encontrada! Digite novamente!");
+				void menurot();
+			}
+	}
+}
+
+void EspVert(char Arte[24][24])
+{
+	char artVert[24][24];
+	printf("\n \n");
+		
+		int resp;
+		printf("Deseja aplicar outra transformação? Digite 1 para sim e 2 para não!\n");
+		scanf("%d", &resp);
+		if(resp == 1)
+		{
+			menurot(artHori[24][24]);
+		}
+		else if(resp == 2)
+			exit(0);	
+}
+
+void EspHori(char Arte[24][24])
+{
+	char artHori[24][24];
+	printf("\n \n");
+		
+		int resp;
+		printf("Deseja aplicar outra transformação? Digite 1 para sim e 2 para não!\n");
+		scanf("%d", &resp);
+		if(resp == 1)
+		{
+			menurot(artHori[24][24]);
+		}
+		else if(resp == 2)
+			exit(0);
 }
