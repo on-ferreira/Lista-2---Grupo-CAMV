@@ -187,8 +187,30 @@ void menurot()
 
 void EspVert(int EV)
 {
-	char artVert[23][23];
-	
+	int ctEV=0;
+	int i,j,linha,coluna,aux;
+	for(ctEV=0; ctEV<EV;ctEV++)
+	{
+				
+		for(coluna=0,j=0;j<23;j++,coluna++)
+		{
+		
+			for (linha=0,i=(23-1);i>=(23/2);i--,linha++)
+			{
+				aux = Arte[linha][coluna];
+				Arte[linha][coluna]=Arte[i][j];
+				Arte[i][j] = aux;
+			}
+		}	
+		for(i=0;i<23;i++)
+		{
+			for(j=0;j<23;j++)
+				{
+					printf("%d ",Arte[i][j]);
+				}
+				printf("\n");
+		}		
+	}
 	
 	printf("\n \n");
 		
@@ -205,9 +227,30 @@ void EspVert(int EV)
 
 void EspHori(int EH)
 {
-	char artHori[23][23];
+	int ctEH=0;
+	int i,j,linha,coluna,aux;
+	for(ctEH=0; ctEH<EH;ctEH++)
+	{
+		for(linha=0,i=0;i<23;i++,linha++)
+		{
+		
+			for (coluna=0,j=(23-1);j>=(23/2);j--,coluna++)
+			{
+				aux = Arte[linha][coluna];
+				Arte[linha][coluna]=Arte[i][j];
+				Arte[i][j] = aux;
+			}
+		}	
 	
-	
+		for(i=0;i<23;i++)
+		{
+			for(j=0;j<23;j++)
+				{
+					printf("%d ",Arte[i][j]);
+				}
+				printf("\n");
+		}
+	}
 	printf("\n \n");
 		
 		int resp;
