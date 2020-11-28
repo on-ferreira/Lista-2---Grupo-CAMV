@@ -78,7 +78,7 @@ void LeitorTXT(char Arte[DIM][DIM])
 void menuini(char Arte[DIM][DIM])
 {
 	int opcao;
-	printf("\n------------------Selecione o modo de enviar a Scan Art II------------------");
+	printf("\n------------------Selecione o modo de enviar a ASCII Art------------------");
 	printf("\n 1 - Digitar o arquivo manualmente no formato [23][23].");
 	printf("\n 2 - Enviar um arquivo no format .txt ");	
 	printf("\n 0 - Sair \n");
