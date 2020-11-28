@@ -42,9 +42,21 @@ void ScanArte(char Arte[DIM][DIM]) // Função que pede ao usuário que digite a
 void LeitorTXT(char Arte[DIM][DIM])
 {
 	int k=0;
+	
+	printf("Para o bom funcionamento desta função certifique-se que o arquivo a ser aberto se encontra no mesmo \ndiretório que o executável!\n");
+	printf("Você deve digitar o nome do arquivo exatamente como ele é, incluindo letras maiúsculas e minúsculas!\n");
+	printf("Como por exemplo, Casa.txt, porta.txt, etc.\n");
+	printf("Obs: Não se esqueça do .txt no final!\n");
+	printf("\n");
+	
+	char nome[80];
+   	printf("Digite o nome do arquivo: ");      
+   	gets(nome);
+   	printf("\n");
+	
 	FILE *file; //Define um ponteiro do tipo FILE
-	file = fopen("Casa.txt", "r"); //Abre o arquivo Casa.txt (o arquivo deve estar no mesmo diretório que o exe)
-				       //"r" significa "read", usado na função "fopen" para ler arquivos
+	file = fopen(nome, "r"); //Abre o arquivo
+				 //"r" significa "read", usado na função "fopen" para ler arquivos
 	
 	if(file == NULL){ //Se o ponteiro não apontar para nada, ou seja, se o nome digitado for diferente do nome do arquivo, printa que é inválido.
 		printf("Arquivo inválido.\n");
