@@ -31,17 +31,20 @@ int main()
 
 void GerarMatriz (int mat[30][30])
 {
-	for(int i=0; i<30; i++)
-	{
-		for(int j=0; j<30; j++)
-			if(i == j)
-			{
-				mat[i][j] = 0;
-				printf("%3d ", mat[i][j]);
-			}
+	for (int i =0; i<DIM; i++)
+		for (int j = 0; j<DIM; j++)
+				Matriz[i][j] = 0;
 				
-			else
-				printf("%3d ", mat[i][j]);
-		printf("\n");
+	for (int i =0; i<DIM; i++)
+	{
+		for (int j = 0; j<DIM; j++)
+		{
+			if (Matriz[i][j] ==0 && i!=j)
+			{
+			printf("\nDigite a distância entre as cidades %d e %d: ", i, j);
+			scanf("%d", &Distancia);
+			Matriz[i][j] = Distancia;
+			Matriz[j][i] = Distancia;
+			}
+		}
 	}
-}
