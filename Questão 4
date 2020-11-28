@@ -96,6 +96,10 @@ void menuini(char Arte[DIM][DIM])
 				LeitorTXT(Arte);
 			}
 			break;
+		case 0:
+			{
+				exit(0);
+			}
 		default: 
 			{
 				printf("\nOpção não encontrada! Digite novamente!");
