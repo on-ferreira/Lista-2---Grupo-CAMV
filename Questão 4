@@ -27,24 +27,22 @@ int main()
 
 void ScanArte(char Arte[DIM][DIM]) // Função que pede ao usuário que digite a arte e a imprime.
 {
-	for(int i=0; i<DIM; i++)
-		for (int j = 0; j<DIM; j++)
-			Arte[i][j] =' ';
-				
-	for(int i =0; i<DIM;i++)
-	{
-		printf("Digite a linha %2d: ", i+1);
-		fgets(Arte[i],DIM,stdin);	
-	}
+	for(int i=1; i<=DIM; i = i+1)
+		for (int j = 1; j<=DIM; j = j+1){
+			printf("Digite o caracter da linha %d e coluna %d: ", i, j);
+			scanf("%c", &Arte[i][j]);
+		}
 	menurot(Arte);
 }
 
 void LeitorTXT(char Arte[DIM][DIM])
 {
 	int k=0;
+	
 	printf("\n");
-	printf("Para o bom funcionamento desta função certifique-se que o arquivo a ser aberto se encontra no mesmo \ndiretório que o executável!\n");
-	printf("Você deve digitar o nome do arquivo exatamente como ele é, incluindo letras maiúsculas e minúsculas!\n");
+	printf("\n---------------------------Algumas Observações----------------------------");
+	printf("\nPara o bom funcionamento desta função certifique-se que o arquivo a ser \naberto se encontra no mesmo diretório que o executável!\n");
+	printf("Você deve digitar o nome do arquivo exatamente como ele é, incluindo \nletras maiúsculas e minúsculas!\n");
 	printf("Como por exemplo, Casa.txt, porta.txt, etc.\n");
 	printf("Obs: Não se esqueça do .txt no final!\n");
 	printf("\n");
@@ -112,7 +110,7 @@ void menuini(char Arte[DIM][DIM])
 void menurot(char Arte[DIM][DIM])
 {
 	int opcao,R1,R2,EV,EH;
-	printf("\n------------------Menu de Transformações------------------");
+	printf("\n--------------------------Menu de Transformações--------------------------");
 	printf("\n 1 - Rotacione a imagem em 90° no sentido horário.");
 	printf("\n 2 - Rotacione a imagem em 90° no sentido anti-horário. ");
 	printf("\n 3 - Aplique espelhamentos verticais na imagem. ");	
