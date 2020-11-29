@@ -84,6 +84,7 @@ void menuini(char Arte[DIM][DIM])
 	printf("\n 0 - Sair \n");
 	printf("\n\nDigite a opção desejada: ");
 	scanf("%d",&opcao);
+	printf("\n");
 	switch(opcao)
 	{
 		case 1:
