@@ -42,7 +42,7 @@ void ScanArte(char Arte[DIM][DIM]) // Função que pede ao usuário que digite a
 void LeitorTXT(char Arte[DIM][DIM])
 {
 	int k=0;
-	
+	printf("\n");
 	printf("Para o bom funcionamento desta função certifique-se que o arquivo a ser aberto se encontra no mesmo \ndiretório que o executável!\n");
 	printf("Você deve digitar o nome do arquivo exatamente como ele é, incluindo letras maiúsculas e minúsculas!\n");
 	printf("Como por exemplo, Casa.txt, porta.txt, etc.\n");
