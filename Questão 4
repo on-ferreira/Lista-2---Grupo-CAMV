@@ -282,22 +282,23 @@ void EspHori(int EH, char Arte[DIM][DIM])
 	int ctEH=0;
 	int i,j,linha,coluna,aux;
 	for(ctEH=0; ctEH<EH;ctEH++)
-	{
-		for(linha=0,i=0;i<DIM;i++,linha++)
+	{		
+		for(linha=0;linha<DIM;linha++)
 		{
-		
-			for (coluna=0,j=(DIM-1);j>=(DIM/2);j--,coluna++)
+			int len;
+			len = strlen(Arte[linha]);
+			for (coluna=0;coluna<((len-1)/2);coluna++)
 			{
 				aux = Arte[linha][coluna];
-				Arte[linha][coluna]=Arte[i][j];
-				Arte[i][j] = aux;
+				Arte[linha][coluna]=Arte[linha][(len-1)-coluna];
+				Arte[linha][(len-1)-coluna] = aux;
 			}
-		}	
+		}		
 	}
 	for(int i=0; i<DIM; i++)
-	{
-		printf("%s",Arte[i]);
-	}
+		{
+			printf("%s",Arte[i]);
+		}
 
 	printf("\n \n");
 		
