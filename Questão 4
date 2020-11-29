@@ -160,27 +160,32 @@ void menurot(char Arte[DIM][DIM])
 void hor90(int R1,char Arte[DIM][DIM])
 {
 		
-	int i=0,j=0,linha,coluna;		
-	char novo[DIM][DIM];
-	for(int ctR1=0; ctR1<R1; ctR1++)
-	{
-		for(linha=0,j=DIM;j>=0;j--,linha++)
+	int i=0,j=0;
+	int c=0;
+	int l= DIM-1-c;
+	char temp = 0;
+		for(c=0;c<DIM/2;++c)
 		{
-		
-			for (coluna=0,i=0;i<DIM;i++,coluna++)
+			int l=DIM-1-c;
+			for(int i=0; i<l-c;++i)
 			{
-				novo[coluna][linha]=Arte[j][i];
+				char temp=Arte[c][c+i];
+				Arte[c][c+i]=Arte[l-i][c];
+				Arte[l-i][c]=Arte[l][l-i];
+				Arte[l][l-i]=Arte[c+i][l];
+				Arte[c+i][l]=temp;
 			}
-		}	
-	}
-	for(int i=0; i<DIM;i++)
-		for(int j=0;j<DIM;j++)
-			Arte[i][j] = novo[i][j];
+			}	
 
-	for(int i=0; i<DIM; i++)
-		{
-		printf("%s",Arte[i]);
-	}	
+	    for(int i =0; i<DIM; i++)
+	    {
+	        for(int j =0; j<DIM; j++)
+	        {
+	            printf("%c ",Arte[i][j]);
+	        }
+	        printf("\n");
+	    }
+		
 	printf("\n \n");
 		
 	int resp;
