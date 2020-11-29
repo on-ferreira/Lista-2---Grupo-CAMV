@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <math.h>
 #include <string.h>
-#include <conio.h> 
 
-#define DIM 23
+#define DIM 24
 
 void menuini(char Arte[DIM][DIM]); // Orlando
 void menurot(char Arte[DIM][DIM]); 
