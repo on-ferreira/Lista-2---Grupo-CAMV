@@ -202,25 +202,32 @@ void hor90(int R1,char Arte[DIM][DIM])
 void ant90(int R2,char Arte[DIM][DIM])
 {
 
-	int i=0,j=0,linha=0,coluna=DIM,ctR2=0;		
-	char novo[DIM][DIM];
-	for(ctR2 =0; ctR2<R2; ctR2++)
-	{
-		for(linha=0,j=(DIM-1);j>=0;j--,linha++)
+	int i=0,j=0;
+	int c=0;
+	int l= DIM-1-c;
+	char temp = 0;
+		for(c=0;c<DIM/2;++c)
 		{
-			for (coluna=0,i=0;i<DIM;i++,coluna++)
+			int l=DIM-1-c;
+			for(int i=0; i<l-c;++i)
 			{
-				novo[linha][coluna]=Arte[i][j];
+				char temp=Arte[c+i][l];
+				Arte[c+i][l]=Arte[l][l-i];
+				Arte[l][l-i]=Arte[l-i][c];
+				Arte[l-i][c]=Arte[c][c+i];
+				Arte[c][c+i]=temp;
 			}
-		}	
-		for(int i=0; i<DIM;i++)
-			for(int j=0;j<DIM;j++)
-				Arte[i][j] = novo[i][j];
-	}
-	for(int i=0; i<DIM; i++)
-		{
-		printf("%s",Arte[i]);
-	}	
+			}	
+
+	    for(int i =0; i<DIM; i++)
+	    {
+	        for(int j =0; j<DIM; j++)
+	        {
+	            printf("%c ",Arte[i][j]);
+	        }
+	        printf("\n");
+	    }
+		
 	printf("\n \n");
 		
 		int resp;
