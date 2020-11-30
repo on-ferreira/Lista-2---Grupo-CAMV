@@ -23,6 +23,13 @@ int main()
 {
 	setlocale (LC_ALL, "");
 	system("color 02");
+	for(i=0; i<DIM;i++)
+	for(j=0; j<DIM; j++)
+		{
+			if(i == 0 || j== 0 || i==29 || j == 29) Jogo[i][j] = 2;
+			else Jogo[i][j]=0;
+		}
+	menu();
 	return 0;
 }
 
