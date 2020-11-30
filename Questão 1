@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <math.h>
 #include <string.h>
 #include <conio.h> 
 
@@ -30,7 +29,7 @@ int main()
 void menu()
 {
 	int opcao;
-	printf("\n--------------------Escolha a forma de jogo--------------------");
+	printf("\n--------------------Escolha a forma de jogo--------------------\n");
 	printf("\n 1 - Inicialização Randômica.");
 	printf("\n 2 - Escolha onde se localizarão as células vivas. ");	
 	printf("\n 0 - Sair \n");
@@ -50,7 +49,7 @@ void menu()
 			break;
 		case 0:
 			{
-				Exit();
+				exit(0);
 			}
 			break;
 		default: 
@@ -68,11 +67,11 @@ void IniUser(int linha, int coluna)
 	printf("Digite a linha e a coluna em que deseja posicionar uma célula viva: ");
 	scanf("%d %d", &linha, &coluna);
 	if(linha == -1 && coluna == -1)
-		break;
-	else if  (linha <1 | | linha >30 | | coluna <1 | | coluna>30)
+		O-JOGO();
+	else if  (linha <1 || linha >30 || coluna <1 || coluna>30)
 		printf("Posição inválida, tente outra vez!");
 	else
-		MVelha[linha][coluna] = 1;
+		Jogo[linha+1][coluna+1] = 1;
 	}	
 }
 
