@@ -117,3 +117,39 @@ void rota(int Cidade,int ctUniversal)
 	rota(flagCid2,ctUniversal);
 
 }
+int Checar1000km(int Cidade, int ctaux)
+{
+	int flagCid1, flagCid2, ctCidades=0;
+	int menorD=9999;
+	
+	for(int j=0; j<DIM; j++)
+		{
+			if (Distancias[Cidade-1][j]<menorD && Distancias[Cidade-1][j]!=0)
+			{
+				flagCid1 =Cidade;
+				flagCid2 =j+1;
+				menorD=Distancias[Cidade-1][j];
+			}
+		}
+	ctaux+=menorD;
+
+	for(int i = 0; i<DIM;i++)
+		for(int j=0; j<DIM; j++)
+			ctCidades+=Distancias[i][j];
+			
+	if(ctCidades==0)
+	{
+		printf("\nTodas as cidades foram percorridas, volte a cidade inicial %d",CidInicial);
+		exit(0);
+	}
+	
+	if(ctaux<=1000) return 0;
+	if(ctaux>1000) 
+	{
+		printf("\nDurma uma noite na cidade %d e recomeçe no dia seguinte.\n",Cidade);
+		ctUniversal=0;
+		rota(Cidade,ctUniversal);
+		return 0;	
+	}
+	
+}
