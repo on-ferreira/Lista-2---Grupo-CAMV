@@ -9,6 +9,9 @@
 int main() 
 {
 	setlocale (LC_ALL, "");
+	
+	//system("color 86");
+	//system("color 8E");
 
 	return 0;
 }
