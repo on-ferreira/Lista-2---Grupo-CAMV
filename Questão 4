@@ -38,9 +38,10 @@ void ScanArte(char Arte[DIM][DIM]) // Função que pede ao usuário que digite a
 
 void LeitorTXT(char Arte[DIM][DIM])
 {
+	getchar();
+	
 	int k=0;
 	
-	printf("\n");
 	printf("\n---------------------------Algumas Observações----------------------------");
 	printf("\nPara o bom funcionamento desta função certifique-se que o arquivo a ser \naberto se encontra no mesmo diretório que o executável!\n");
 	printf("Você deve digitar o nome do arquivo exatamente como ele é, incluindo \nletras maiúsculas e minúsculas!\n");
@@ -59,12 +60,16 @@ void LeitorTXT(char Arte[DIM][DIM])
 	
 	if(file == NULL){ //Se o ponteiro não apontar para nada, ou seja, se o nome digitado for diferente do nome do arquivo, printa que é inválido.
 		printf("Arquivo inválido.\n");
+		printf("Digite Enter para tentar novamente!\n");
+		LeitorTXT(Arte);
 	}
 	
 	char arquivo[DIM*DIM];
 	while((fgets(arquivo, DIM*DIM, file)) != NULL){ //Imprime até que encontre um espaço vazio (NULL), daí para o print.
 		printf("%s", arquivo);
 	}
+	
+	printf("\n");
 	
 	fclose(file);
 	
@@ -79,7 +84,7 @@ void menuini(char Arte[DIM][DIM])
 	int opcao;
 	printf("\n------------------Selecione o modo de enviar a ASCII Art------------------");
 	printf("\n 1 - Digitar o arquivo manualmente no formato [23][23].");
-	printf("\n 2 - Enviar um arquivo no format .txt ");	
+	printf("\n 2 - Enviar um arquivo no formato .txt ");	
 	printf("\n 0 - Sair \n");
 	printf("\n\nDigite a opção desejada: ");
 	scanf("%d",&opcao);
