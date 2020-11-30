@@ -6,6 +6,15 @@
 #include <string.h>
 #include <conio.h> 
 
+Menu [Dar opções para ir ao IniRad ou ao IniUser] // JP
+IniRand [inicializar a matriz de forma randomica] // Orlando
+IniUser [Checar input] // JP
+NumGenerations [Chamar essa função após as funções Ini] // JP
+O JOGO [Chamar a função checar vizinhos e depois imprimir o resultado]// JP
+ChecarVizinhos [Usar uma "matriz auxiliar" pra ajudar no calculo de celular viva ou morta] // Tobias
+
+
+
 int main() 
 {
 	setlocale (LC_ALL, "");
@@ -27,6 +36,6 @@ void IniUser(int linha, int coluna)
 	else if  (linha <1 | | linha >30 | | coluna <1 | | coluna>30)
 		printf("Posição inválida, tente outra vez!");
 	else
-		Matriz[linha][coluna] = 1;
+		MVelha[linha][coluna] = 1;
 	}	
 }
