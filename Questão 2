@@ -5,7 +5,9 @@
 #include <string.h>
 #include <conio.h>
 
-int Distancias[30][30];
+#define DIM 30
+
+/* int Distancias[30][30];
 int Trajeto[30];
 Int DistanciaDoDia;
 Menu();//Orlando (viciado em menu)
@@ -18,9 +20,13 @@ InputCidadeAtual();//JP
 		ConferirDis>=1000();//Tobias
 	SalvarTrajeto();//Orlando
 		TrocarDistancia();//Orlando
-Resultado();//Orlando		
+Resultado();//Orlando	*/	
 	
-	
+int Distancias[DIM][DIM];
+int CidInicial,ctUniversal;
+int Checarinput(int Distancia);
+void rota(int Cidade,int ctUniversal);
+int Checar1000km(int Cidade, int ctaux);	
 
 int main() 
 {
