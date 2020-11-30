@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <math.h>
-#include <string.h>
-#include <conio.h>
 
 #define DIM 30
 
@@ -73,27 +70,6 @@ int main()
 	return 0;
 }
 
-void GerarMatriz (int mat[30][30])
-{
-	for (int i =0; i<DIM; i++)
-		for (int j = 0; j<DIM; j++)
-				Matriz[i][j] = 0;
-				
-	for (int i =0; i<DIM; i++)
-	{
-		for (int j = 0; j<DIM; j++)
-		{
-			if (Matriz[i][j] ==0 && i!=j)
-			{
-			printf("\nDigite a distância entre as cidades %d e %d: ", i, j);
-			scanf("%d", &Distancia);
-			Matriz[i][j] = Distancia;
-			Matriz[j][i] = Distancia;
-			}
-		}
-	}
-}
-
 int Checarinput(int Distancia)
 {
 	if(Distancia>0 && Distancia<=1000) return Distancia;
@@ -103,4 +79,41 @@ int Checarinput(int Distancia)
 		scanf("%d",&Distancia);
 		Checarinput(Distancia);
 	}
+}
+
+void rota(int Cidade,int ctUniversal)
+{
+	int flagCid1, flagCid2, ctCidades;
+	int menorD=0;
+	
+	if(Checar1000km(Cidade,ctUniversal)==0)
+	{
+	menorD=999999;
+	for(int j=0; j<DIM; j++)
+		{
+			if (Distancias[Cidade-1][j]<menorD && Distancias[Cidade-1][j]!=0)
+			{
+				flagCid1 =Cidade;
+				flagCid2 =j+1;
+				menorD=Distancias[Cidade-1][j];
+			}
+		}
+	}
+	ctUniversal+=menorD;
+
+	printf("\n Partindo da cidade %d próxima cidade é a cidade %d\n",flagCid1,flagCid2);
+	for(int i = 0; i<DIM;i++)
+		for(int j=0; j<DIM; j++)
+			{
+				if(i == Cidade-1)
+					{
+						Distancias[Cidade-1][j] = 0;
+					}
+				else if(j == Cidade -1)
+				{
+					Distancias[i][Cidade-1] = 0;
+				}
+			}	
+	rota(flagCid2,ctUniversal);
+
 }
