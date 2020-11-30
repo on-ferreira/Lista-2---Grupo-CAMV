@@ -48,3 +48,15 @@ void GerarMatriz (int mat[30][30])
 			}
 		}
 	}
+}
+
+int Checarinput(int Distancia)
+{
+	if(Distancia>0 && Distancia<=1000) return Distancia;
+	if(Distancia<=0||Distancia>1000)
+	{
+		printf("Distância inválida! Digite novamente.");
+		scanf("%d",&Distancia);
+		Checarinput(Distancia);
+	}
+}
