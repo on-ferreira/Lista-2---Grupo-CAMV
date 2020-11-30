@@ -6,22 +6,24 @@
 #include <string.h>
 #include <conio.h> 
 
-Menu [Dar opções para ir ao IniRad ou ao IniUser] // JP
-IniRand [inicializar a matriz de forma randomica] // Orlando
-IniUser [Checar input] // JP
-NumGenerations [Chamar essa função após as funções Ini] // JP
-O JOGO [Chamar a função checar vizinhos e depois imprimir o resultado]// JP
-ChecarVizinhos [Usar uma "matriz auxiliar" pra ajudar no calculo de celular viva ou morta] // Tobias
+#define DIM 30
+
+int Jogo[DIM+2][DIM+2];
+int TabuleiroAuxiliar[DIM+2][DIM+2];
+void menu (); // [Dar opções para ir ao IniRad ou ao IniUser] // JP
+void IniRand(); // [inicializar a matriz de forma randomica] // Orlando
+void IniUser(); // [Checar input] JP
+void NumGenerations(); // [Chamar essa função após as funções Ini] // JP
+void O-JOGO(); // [Chamar a função checar vizinhos e depois imprimir o resultado]// JP
+void ChecarVizinhos(); // [Usar uma "matriz auxiliar" pra ajudar no calculo de celular viva ou morta] // Tobias
+
 
 
 
 int main() 
 {
 	setlocale (LC_ALL, "");
-	
-	//system("color 86");
-	//system("color 8E");
-
+	system("color 02");
 	return 0;
 }
 
@@ -72,4 +74,12 @@ void IniUser(int linha, int coluna)
 	else
 		MVelha[linha][coluna] = 1;
 	}	
+}
+
+void IniRand();
+{
+	for(i=1; i<DIM;i++)
+		for(j=1; j<DIM; j++)
+			Jogo[i][j]=rand()%2;
+	O-JOGO();
 }
