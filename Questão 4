@@ -165,6 +165,8 @@ void hor90(int R1,char Arte[DIM][DIM])
 	int c=0;
 	int l= DIM-1-c;
 	char temp = 0;
+	for(int ctR1=0; ctR1<R1;ctR1++)
+	{
 		for(c=0;c<DIM/2;++c)
 		{
 			int l=DIM-1-c;
@@ -186,7 +188,7 @@ void hor90(int R1,char Arte[DIM][DIM])
 	        }
 	        printf("\n");
 	    }
-		
+	}
 	printf("\n \n");
 		
 	int resp;
@@ -207,7 +209,9 @@ void ant90(int R2,char Arte[DIM][DIM])
 	int c=0;
 	int l= DIM-1-c;
 	char temp = 0;
-		for(c=0;c<DIM/2;++c)
+	for(int ctR2=0; ctR2<R2;ctR2++)
+	{
+			for(c=0;c<DIM/2;++c)
 		{
 			int l=DIM-1-c;
 			for(int i=0; i<l-c;++i)
@@ -228,7 +232,7 @@ void ant90(int R2,char Arte[DIM][DIM])
 	        }
 	        printf("\n");
 	    }
-		
+	}
 	printf("\n \n");
 		
 		int resp;
