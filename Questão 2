@@ -25,7 +25,45 @@ Resultado();//Orlando
 int main() 
 {
 	setlocale (LC_ALL, "");
+	int Distancia;
 
+	for (int i =0; i<DIM; i++)
+		for (int j = 0; j<DIM; j++)
+				{
+					Distancias[i][j] = 0;
+				}
+	for (int i =0; i<DIM; i++)
+	{
+		for (int j = 0; j<DIM; j++)
+		{
+			if (Distancias[i][j] ==0 && i!=j)
+			{
+			printf("\nDigite a distância entre as cidades %d e %d: ",i+1,j+1);
+			scanf("%d", &Distancia);
+			Distancia = Checarinput(Distancia);
+			Distancias[i][j] = Distancia;
+			Distancias[j][i] = Distancia;
+			}
+		}
+	}			
+	
+	for (int i =0; i<DIM; i++)
+	{
+		for (int j = 0; j<DIM; j++)
+		{
+			printf("%3d ", Distancias[i][j]);	
+		}
+		printf("\n");
+	}
+	
+	printf("Em qual cidade o caixeiro viajante está?\n");
+	scanf("%d",&CidInicial);
+	while(CidInicial>DIM)
+		{
+			printf("Cidade invalida, digite uma cidade valida:\n");
+			scanf("%d",&CidInicial);
+		}
+	rota(CidInicial,0);
 	return 0;
 }
 
