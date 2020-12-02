@@ -89,3 +89,46 @@ void IniRand();
 			Jogo[i][j]=rand()%2;
 	O-JOGO();
 }
+
+
+void ChecarVizinhos();
+	{
+		int vizinhos;
+		for(int i=1;i<32;i++)
+		{
+			for(int j=1;j<32;j++)
+			{
+				if (Jogo[i-1][j-1]==1)
+					ct++;
+				if (Jogo[i-1][j]==1)
+					ct++;
+				if (Jogo[i-1][j+1]==1)
+					ct++;
+				if (Jogo[i][j-1]==1)
+					ct++;
+				if (Jogo[i][j+1]==1)
+					ct++;
+				if (Jogo[i+1][j-1]==1)
+					ct++;
+				if (Jogo[i+1][j]==1)
+					ct++;
+				if (Jogo[i+1][j+1]==1)
+					ct++;
+				if(Jogo[i][j]==1)
+					{
+						if(ct == 2 || ct == 3 )
+							TabuleiroAuxiliar[i][j]=1;					
+						else
+							TabuleiroAuxiliar[i][j]=0;	
+						
+						
+					}
+				if (Jogo[i][j]==0 && ct=3)
+					TabueleiroAuxiliar[i][j]=1;
+				if(Jogo[i][j]==2)
+					TabuleiroAuxiliar[i][j]=2;		
+				
+			}
+		}
+		
+	}
