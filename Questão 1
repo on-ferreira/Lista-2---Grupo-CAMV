@@ -103,6 +103,7 @@ void ChecarVizinhos()
 	{
 		for(int j=1;j<(DIM+2);j++)
 		{
+			ct=0;
 			if (Jogo[i-1][j-1]==1)
 				ct++;
 			if (Jogo[i-1][j]==1)
@@ -156,7 +157,9 @@ void O_JOGO()
 	        printf("\n");
 	    }
 	    sleep(2);
-		ctGeracao++;
+	    system("cls");
+	    ctGeracao++;
+	    ChecarVizinhos();
 	}
 	if(ctGeracao>totalGer) exit(0);
 }
