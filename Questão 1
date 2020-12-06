@@ -8,15 +8,12 @@
 #define DIM 30
 
 int Jogo[DIM+2][DIM+2],TabuleiroAuxiliar[DIM+2][DIM+2],ctGeracao,totalGer;
-void menu (); // [Dar opções para ir ao IniRad ou ao IniUser] // JP
-void IniRand(); // [inicializar a matriz de forma randomica] // Orlando
-void IniUser(); // [Checar input] JP
-void NumGenerations(); // [Chamar essa função após as funções Ini] // JP
-void O_JOGO(); // [Chamar a função checar vizinhos e depois imprimir o resultado]// JP
-void ChecarVizinhos(); // [Usar uma "matriz auxiliar" pra ajudar no calculo de celular viva ou morta] // Tobias
-
-
-
+void menu (); // [Dar opções para ir ao IniRad ou ao IniUser]
+void IniRand(); // [inicializar a matriz de forma randomica]
+void IniUser(); // [Checar input]
+void NumGenerations(); // [Chamar essa função após as funções Ini]
+void O_JOGO(); // [Chamar a função checar vizinhos e depois imprimir o resultado]
+void ChecarVizinhos(); // [Usar uma "matriz auxiliar" pra ajudar no calculo de celular viva ou morta]
 
 int main() 
 {
@@ -61,7 +58,7 @@ void menu()
 			break;
 		default: 
 			{
-				printf("\nOpção não encontrada! Digite novamente!");
+				printf("\nOpção não encontrada! Digite novamente!\n");
 				menu(opcao);
 			}
 	}
@@ -78,7 +75,7 @@ void IniUser(int linha, int coluna)
 	if(linha == -1 && coluna == -1)
 		O_JOGO();
 	else if  (linha <1 || linha >DIM || coluna <1 || coluna>DIM)
-		printf("Posição inválida, tente outra vez!");
+		printf("Posição inválida, tente outra vez!\n");
 	else
 		Jogo[linha+1][coluna+1] = 1;
 	}	
@@ -156,9 +153,11 @@ void O_JOGO()
 	        }
 	        printf("\n");
 	    }
-	    sleep(2);
-	    system("cls");
+	    sleep(1);
 	    ctGeracao++;
+	    if(ctGeracao<=totalGer)
+			system("cls");
+			    
 	    ChecarVizinhos();
 	}
 	if(ctGeracao>totalGer) exit(0);
