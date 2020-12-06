@@ -5,15 +5,14 @@
 
 #define DIM 24
 
-void menuini(char Arte[DIM][DIM]); // Orlando
+void menuini(char Arte[DIM][DIM]);
 void menurot(char Arte[DIM][DIM]); 
-void ScanArte(char Arte[DIM][DIM]); // JP
-void hor90(int R1,char Arte[DIM][DIM]); // Tobias FEITO
-void ant90(int R2,char Arte[DIM][DIM]); // Tobias FEITO
-void EspVert(int EV,char Arte[DIM][DIM]); // Orlando FEITO 
-void EspHori(int EH,char Arte[DIM][DIM]); // Orlando FEITO
-
-void LeitorTXT(); // JP - Bonus FEITO
+void ScanArte(char Arte[DIM][DIM]);
+void hor90(int R1,char Arte[DIM][DIM]);
+void ant90(int R2,char Arte[DIM][DIM]);
+void EspVert(int EV,char Arte[DIM][DIM]);
+void EspHori(int EH,char Arte[DIM][DIM]);
+void LeitorTXT();
 
 int main() 
 {
@@ -76,7 +75,6 @@ void LeitorTXT(char Arte[DIM][DIM])
 	for(int i=0; i<DIM;i++)
 		for (int j=0;j<DIM;j++,k++)
 			Arte[i][j] = arquivo[k];
-	menurot(Arte);
 }
 
 void menuini(char Arte[DIM][DIM])
