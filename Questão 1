@@ -4,16 +4,16 @@
 #include <string.h>
 #include <conio.h> 
 #include <time.h>
+#include <windows.h>
 
 #define DIM 30
 
 int Jogo[DIM+2][DIM+2],TabuleiroAuxiliar[DIM+2][DIM+2],ctGeracao,totalGer;
-void menu (); // [Dar opções para ir ao IniRad ou ao IniUser]
-void IniRand(); // [inicializar a matriz de forma randomica]
-void IniUser(); // [Checar input]
-void NumGenerations(); // [Chamar essa função após as funções Ini]
-void O_JOGO(); // [Chamar a função checar vizinhos e depois imprimir o resultado]
-void ChecarVizinhos(); // [Usar uma "matriz auxiliar" pra ajudar no calculo de celular viva ou morta]
+void menu (); // JP [Dar opções para ir ao IniRad ou ao IniUser]
+void IniRand(); // Orlando [inicializar a matriz de forma randomica]
+void IniUser(); // JP [Checar input]
+void O_JOGO(); // Tobias-Orlando [Chamar a função checar vizinhos e depois imprimir o resultado]
+void ChecarVizinhos(); // Tobias [Usar uma "matriz auxiliar" pra ajudar no calculo de celular viva ou morta]
 
 int main() 
 {
@@ -59,13 +59,14 @@ void menu()
 		default: 
 			{
 				printf("\nOpção não encontrada! Digite novamente!\n");
-				menu(opcao);
+				menu();
 			}
 	}
 }
 
-void IniUser(int linha, int coluna)
+void IniUser()
 {
+	int linha, coluna;
 	printf("\nQuantas gerações você deseja? \n");
 	scanf("%d",&totalGer);
 	while(1)
@@ -144,16 +145,16 @@ void O_JOGO()
 	while (ctGeracao<=totalGer)
 	{
 		printf("\n\n---------Geração %d---------\n\n",ctGeracao);
-		for(int i=1; i<DIM;i++)
+		for(int i=1; i<=DIM;i++)
 	    {
-	        for(int j=1; j<DIM; j++)
+	        for(int j=1; j<=DIM; j++)
 	        {
 	            if(Jogo[i][j] == 1)printf("O",Jogo[i][j]);
 	            if(Jogo[i][j] == 0)printf(" ",Jogo[i][j]);
 	        }
 	        printf("\n");
 	    }
-	    sleep(1);
+	    Sleep(1000);
 	    ctGeracao++;
 	    if(ctGeracao<=totalGer)
 			system("cls");
